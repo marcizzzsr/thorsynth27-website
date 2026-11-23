@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThorSynth Leaderboard</title>
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Chakra+Petch:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="leaderboard">
+<main>
+  <header class="page-head">
+    <div class="wrap">
+      <h1>Leaderboard</h1>
+      <p>A preview of the standings. The live, authoritative leaderboard is on Codabench.</p>
+      <div class="btn-row"><a class="btn" data-link="codabenchLeaderboard" href="#">Live leaderboard on Codabench <span class="arr">›</span></a></div>
+    </div>
+  </header>
+
+  <section class="band"><div class="wrap">
+    <div class="locked px lift" id="lb-locked" hidden>
+      <div class="kicker">Opens <span data-date="Validation"></span></div>
+      <h2>Coming with the validation phase</h2>
+      <p>The leaderboard opens with the validation phase on <span data-date="Validation"></span>. From then on, this page shows the top teams of each track, taken from the official leaderboard on Codabench.</p>
+      <div class="btn-row"><a class="btn" href="participate.html">Participant guide <span class="arr">›</span></a><a class="btn ghost" href="index.html#timeline">See the timeline</a></div>
+    </div>
+  </div><div class="wrap" id="lb">
+    <div class="head" style="margin-bottom:18px">
+      <div class="tabs" role="group" aria-label="Track">
+        <button type="button" data-tr="br40" aria-pressed="true">Track 1 · Br40</button>
+        <button type="button" data-tr="bl60" aria-pressed="false">Track 2 · Bl60</button>
+      </div>
+      <div class="tabs" role="group" aria-label="Phase">
+        <button type="button" data-ph="val" aria-pressed="true">Validation</button>
+        <button type="button" data-ph="test" aria-pressed="false">Test</button>
+      </div>
+    </div>
+    <div class="board scroll">
+      <div class="board-top"><span id="lb-title">Track 1 · Br40 — Validation</span><span class="small">sorted by average rank</span></div>
+      <table class="t hs">
+        <thead><tr><th>Rank</th><th>Team</th><th class="n">Avg. rank</th><th class="n">MAE (HU) ↓</th><th class="n">SSIM ↑</th><th class="n">Pearson r ↑</th></tr></thead>
+        <tbody id="lb-body"></tbody>
+      </table>
+    </div>
+    <p class="small" style="margin-top:12px">Top teams of each track, taken from the official leaderboard on Codabench.</p>
+
+    <div class="grid g3" style="margin-top:44px">
+      <div class="px card"><h3>How ranks are built</h3><p>Each metric ranks the teams; the average of those ranks orders the table. ROI metrics are on Codabench's detailed view.</p></div>
+      <div class="px card"><h3>Validation is a guide</h3><p>The validation board helps you iterate. Only the test phase decides the final ranking.</p></div>
+      <div class="px card"><h3>Final results</h3><p>The official ranking follows the verification step and is sent to teams on <span data-date="Results"></span>.</p></div>
+    </div>
+  </div></section>
+</main>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

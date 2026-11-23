@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThorSynth Organizers</title>
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Chakra+Petch:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="organizers">
+<main>
+  <header class="page-head">
+    <div class="wrap">
+      <h1>Organizers</h1>
+      <p>A team of AI researchers and radiologists in Milan, Italy.</p>
+    </div>
+  </header>
+
+  <section class="band"><div class="wrap">
+    <div class="head"><h2>Organizing team</h2></div>
+    <div class="grid g3" id="people"></div>
+
+    <div class="grid g2" style="margin-top:56px">
+      <div class="px lift card">
+        <h3>Institutions</h3>
+        <p>S-RACE (San Raffaele AI Centre), Vita-Salute San Raffaele University, Milan.</p>
+        <p>School of Medicine, Vita-Salute San Raffaele University, Milan.</p>
+        <p>Department of Advanced Imaging for Personalized Medicine, IRCCS San Raffaele Hospital, Milan.</p>
+      </div>
+      <div class="px lift card">
+        <h3>Contact</h3>
+        <p>Challenge questions go on the Codabench forum. For data access, the DUA and anything else, write to the challenge email:</p>
+        <p><a data-email href="#"></a></p>
+        <p class="small">Sponsors to be announced.</p>
+      </div>
+    </div>
+  </div></section>
+</main>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script>
+{
+  const P = [
+    ["Prof. Alberto Traverso, PhD", "Co-director of S-RACE (San Raffaele AI Centre), School of Medicine at Vita-Salute San Raffaele University."],
+    ["Marcello Agazzi", "Researcher in Computer Vision, S-RACE (San Raffaele AI Centre) and the School of Medicine at Vita-Salute San Raffaele University."],
+    ["Francesco Pisu", "PhD student in Molecular Medicine, School of Medicine and S-RACE (San Raffaele AI Centre) at Vita-Salute San Raffaele University; Department of Advanced Imaging for Personalized Medicine at IRCCS San Raffaele Hospital."],
+    ["Marta Liberotti", "PhD student in Molecular Medicine, School of Medicine and S-RACE (San Raffaele AI Centre) at Vita-Salute San Raffaele University; Department of Advanced Imaging for Personalized Medicine at IRCCS San Raffaele Hospital."],
+    ["Davide Serra", "Researcher, School of Medicine and S-RACE (San Raffaele AI Centre) at Vita-Salute San Raffaele University; Department of Advanced Imaging for Personalized Medicine at IRCCS San Raffaele Hospital."],
+    ["Nicolò Pecco, PhD", "Postdoctoral researcher in Computer Vision, S-RACE (San Raffaele AI Centre) and the School of Medicine at Vita-Salute San Raffaele University."],
+    ["Davide Vignale, MD, PhD", "Radiologist, School of Medicine at Vita-Salute San Raffaele University; Department of Advanced Imaging for Personalized Medicine at IRCCS San Raffaele Hospital."],
+    ["Prof. Anna Palmisano, MD, PhD", "Radiologist, School of Medicine at Vita-Salute San Raffaele University; Department of Advanced Imaging for Personalized Medicine at IRCCS San Raffaele Hospital."],
+    ["Prof. Antonio Esposito, MD", "Radiologist, Director of S-RACE (San Raffaele AI Centre), Deputy Scientific Director of IRCCS San Raffaele Hospital and Director of the Department of Advanced Imaging for Personalized Medicine at IRCCS San Raffaele Hospital."]
+  ];
+  const ini = n => n.replace(/^Prof\.\s*/, "").split(",")[0].split(" ").map(w => w[0]).join("").slice(0, 2);
+  document.getElementById("people").innerHTML = P.map(([n, r]) => `<article class="px person"><div class="ini" aria-hidden="true">${ini(n)}</div><h3>${n}</h3><p>${r}</p></article>`).join("");
+}
+</script>
+</body>
+</html>

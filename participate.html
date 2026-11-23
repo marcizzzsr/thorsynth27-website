@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThorSynth Participant guide</title>
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Chakra+Petch:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="participate">
+<main>
+  <header class="page-head">
+    <div class="wrap">
+      <h1>Participant guide</h1>
+      <p>From account to final submission: what to do, where, and by when.</p>
+      <nav class="toc" aria-label="On this page"><a href="#register">Register & data access</a><a href="#phases">Phases</a><a href="#submission">Submission format</a><a href="#checklist">Before you upload</a><a href="#help">Help</a></nav>
+    </div>
+  </header>
+
+  <section class="band"><div class="wrap">
+    <div class="sec" id="register">
+      <h2>Register & data access</h2>
+      <div>
+        <p class="note warn">Pre-registration opens on <b data-date="Launch"></b>.</p>
+        <div class="grid g3 quest" style="gap:22px">
+          <article class="px card"><div class="lv">Step 1</div><h3>Codabench account</h3><p>The team leader creates an account on Codabench and opens the ThorSynth page. One account per team.</p><a class="more" data-link="codabench" href="#">Open Codabench ›</a></article>
+          <article class="px card"><div class="lv">Step 2</div><h3>Request to join</h3><p>On the challenge page, accept the terms and click <i>Register</i>. Your request stays pending until the organizers approve it.</p><a class="more" href="rules.html#terms">Terms summary ›</a></article>
+          <article class="px card"><div class="lv">Step 3</div><h3>Request data access on Zenodo</h3><p>Open the ThorSynth record on Zenodo and request access. The request form lets you attach the Data Use Agreement signed by the team leader. Approval unlocks the download.</p><a class="more" data-link="dataHost" href="#">Zenodo record ›</a></article>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" id="phases">
+      <h2>Phases</h2>
+      <div>
+        <p>The validation phase runs on Codabench with <b>result submissions</b>: you upload synthetic CTs and the organizers' scoring program computes the metrics. The test phase will require a <b>Docker container</b> with your method; how and for which teams it is run will be announced later.</p>
+        <div class="phases">
+          <article class="px lift pane"><div class="kicker" data-date="Validation"></div><h3>Validation phase</h3>
+            <dl class="spec"><dt>You upload</dt><dd>sCTs for ~15 validation MRIs</dd><dt>Limit</dt><dd>2 submissions per day</dd><dt>Leaderboard</dt><dd>Public, updated on every submission</dd><dt>Purpose</dt><dd>Iterate and check your pipeline</dd></dl></article>
+          <div class="link" aria-hidden="true"></div>
+          <article class="px lift pane" style="--c:var(--blue)"><div class="kicker" data-date="Test"></div><h3>Test phase</h3>
+            <dl class="spec"><dt>You upload</dt><dd>A Docker container of your method; how it is run on the 40–50 test MRIs will be announced</dd><dt>Limit</dt><dd>To be announced</dd><dt>Leaderboard</dt><dd>To be announced</dd><dt>Purpose</dt><dd>Final ranking</dd></dl></article>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" id="submission">
+      <h2>Submission format</h2>
+      <div>
+        <p>For the validation phase, upload a single <code>.zip</code> with your synthetic CTs for the tracks you enter. The test-phase submission format will be announced later.</p>
+        <ul class="clean">
+          <li>One sCT per MRI case, named with the input case ID.</li>
+          <li>Same geometry as the input MRI: size, spacing, origin and direction.</li>
+          <li>Values in Hounsfield Units, stored as compressed NIfTI.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec" id="checklist">
+      <h2>Before you upload</h2>
+      <div>
+        <ul class="clean">
+          <li>Every validation case has an sCT for each track you enter.</li>
+          <li>Geometry matches the input MRI; the scoring program rejects mismatched volumes.</li>
+          <li>No manual editing of the synthetic CTs.</li>
+          <li>Validation and test MRIs are not used to train or adapt the model.</li>
+          <li>You scored the volumes locally with the public evaluation code.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec" id="help">
+      <h2>Help</h2>
+      <div>
+        <p>Questions about the task, data or rules go on the <a data-link="codabench" href="#">Codabench forum</a>, so every team sees the answer. For DUA and account matters, write to the challenge email: <a data-email href="#"></a>.</p>
+        <div class="btn-row"><a class="btn" data-link="codabench" href="#">Go to Codabench <span class="arr">›</span></a><a class="btn ghost" href="rules.html#faq">Read the FAQ</a></div>
+      </div>
+    </div>
+  </div></section>
+</main>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

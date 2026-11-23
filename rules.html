@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThorSynth Rules & FAQ</title>
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Chakra+Petch:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="rules">
+<main>
+  <header class="page-head">
+    <div class="wrap">
+      <h1>Rules & FAQ</h1>
+      <p>Schedule, participation rules, data terms and awards.</p>
+      <nav class="toc" aria-label="On this page"><a href="#schedule">Schedule</a><a href="#rules">Rules</a><a href="#terms">Data terms</a><a href="#awards">Awards</a><a href="#faq">FAQ</a></nav>
+    </div>
+  </header>
+
+  <section class="band dark" id="schedule" style="padding-top:clamp(24px,3vw,40px)">
+    <div class="wrap">
+      <div class="head"><div><h2>Schedule</h2><p class="lede">Dates marked tbc may move; any change is announced on the Codabench forum.</p></div></div>
+      <div class="lvl" id="timeline"></div>
+      <div class="next" id="next"></div>
+    </div>
+  </section>
+  <div class="steps-edge" aria-hidden="true"></div>
+
+  <section class="band"><div class="wrap">
+    <div class="sec" id="rules">
+      <h2>Rules</h2>
+      <div>
+        <ul class="clean">
+          <li>One Codabench account per team. The team leader registers and signs the DUA.</li>
+          <li>No manual editing of the synthetic CTs.</li>
+          <li>Validation and test MRIs must not be used to train or adapt the model.</li>
+          <li>External data and pre-trained models: policy announced at launch; anything used must be declared in the method description.</li>
+          <li>Members of the organizers' groups may take part but are not eligible for awards.</li>
+          <li>Violations may lead to disqualification.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec" id="terms">
+      <h2>Data terms</h2>
+      <div>
+        <p>By joining ThorSynth you agree to the Data Use Agreement. In short:</p>
+        <ul class="clean">
+          <li>Data may be used only for this challenge and for non-commercial research as defined in the DUA.</li>
+          <li>Redistribution of the images is not allowed.</li>
+          <li>No attempt to re-identify patients.</li>
+          <li>The organizers may publish results, rankings and method descriptions of participating teams.</li>
+        </ul>
+        <p>The full DUA is attached to the access request on Zenodo. <a class="more" data-link="dataHost" href="#">Zenodo record ›</a></p>
+      </div>
+    </div>
+
+    <div class="sec" id="awards">
+      <h2>Awards</h2>
+      <div>
+        <p>The best teams of each track are invited to present their method at the ThorSynth session of ISBI 2027 in Lausanne and to co-author the joint challenge paper. Certificates and any sponsored prizes will be announced before the test phase.</p>
+      </div>
+    </div>
+
+    <div class="sec" id="faq">
+      <h2>FAQ</h2>
+      <div>
+        <details><summary>Can I enter only one track?</summary><p>Yes. Submit synthetic CTs only for that track. Each track has its own ranking.</p></details>
+        <details><summary>Why does registration need manual approval?</summary><p>The images are clinical data. Access is granted only after the team leader's signed Data Use Agreement is received and checked.</p></details>
+        <details><summary>Does Codabench run my model?</summary><p>Not in the validation phase: you upload synthetic CTs and the scoring program evaluates them. The test phase will require a Docker container with your method; details will be announced later.</p></details>
+        <details><summary>Which Dixon contrasts are provided?</summary><p>The final list is published with the training data release.</p></details>
+        <details><summary>How many people can be in a team?</summary><p>There is no fixed limit, but each person may belong to one team only.</p></details>
+        <details><summary>Where do I ask a question?</summary><p>On the Codabench forum, so all teams see the answer. Account and DUA matters: <a data-email href="#"></a>.</p></details>
+      </div>
+    </div>
+  </div></section>
+</main>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
