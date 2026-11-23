@@ -7,7 +7,7 @@ window.THORSYNTH = {
   get codabenchPhases() { return this.codabench ? this.codabench + "#/pages-tab" : ""; },
   get dua() { return this.dataHost; },  // the DUA is attached to the access request on Zenodo
   dataHost: "",                       // Zenodo record (restricted access, request + DUA): empty = "coming soon"
-  github: "",                         // pre-processing and helper scripts repository: empty = "coming soon"
+  github: "",                         // pre-processing, co-registration, helper scripts (and possibly baselines): empty = "coming soon"
   email: "info.thorsynth2027@unisr.it",
   isbi: "https://biomedicalimaging.org/2027/",
   todayNote: "Waiting for ISBI 2027 approval", // shown on the \"Today\" marker of the timeline
