@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThorSynth Challenge</title>
+<meta name="description" content="ThorSynth @ ISBI 2027: synthesise photon-counting chest CT (Br40 and Bl60 kernels) from 3T Dixon MRI.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Chakra+Petch:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="home">
+<main>
+  <section class="hero band dark">
+    <div class="wrap">
+      <div>
+        <h1><img src="assets/wordmark.png" alt="ThorSynth" width="1200" height="271"></h1>
+        <p class="sub">Synthetic thoracic CT from 3T Dixon MRI</p>
+        <p class="lede">Turn a radiation-free thoracic MRI into a calibrated CT in Hounsfield Units, benchmarked against photon-counting CT. Two tracks, one for each reconstruction kernel.</p>
+        <ul class="facts">
+          <li><b>ISBI 2027 challenge</b></li>
+          <li>Lausanne, <span class="nowrap">25–28 May 2027</span></li>
+          <li>150–200 MRI–CT triplets</li>
+          <li>Hosted on Codabench</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn" href="participate.html">Participant guide <span class="arr">›</span></a>
+          <a class="btn ghost" href="challenge.html">Explore the challenge</a>
+        </div>
+      </div>
+      <div class="hammer"><img src="assets/hammer.jpg" alt="ThorSynth logo: a pixel-art hammer with a lung on its head, surrounded by lightning" width="1000" height="740"></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="head">
+        <div><h2>One MRI, two CT targets</h2><p class="lede">Teams enter one or both tracks. Each track has its own leaderboard and its own ranking.</p></div>
+        <a href="challenge.html#tracks">Track details ›</a>
+      </div>
+      <div class="grid g2">
+        <article class="px lift pane"><div class="kicker">Track 1</div><div class="big">Br40</div><h3>Mediastinal kernel</h3><p>Soft tissue, great vessels, thymus and mediastinal fat, where small HU differences carry the clinical signal.</p></article>
+        <article class="px lift pane"><div class="kicker">Track 2</div><div class="big">Bl60</div><h3>Lung kernel</h3><p>Lung parenchyma, airways and bone, with the sharp, high-frequency texture of a lung reconstruction.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <div class="steps-edge up" aria-hidden="true"></div>
+  <section class="band dark">
+    <div class="wrap">
+      <div class="head"><div><h2>Timeline</h2><p class="lede">The challenge runs from December to February. Results will be presented at ISBI 2027.</p></div><a href="rules.html#schedule">Full schedule & rules ›</a></div>
+      <div class="lvl" id="timeline"></div>
+      <div class="next" id="next"></div>
+    </div>
+  </section>
+  <div class="steps-edge" aria-hidden="true"></div>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="head"><div><h2>Your path to ISBI</h2><p class="lede">Four levels from sign-up to Lausanne. Each one links to where it happens.</p></div></div>
+      <div class="grid g4 quest">
+        <article class="px lift card"><div class="lv">Level 1</div><h3>Join on Codabench</h3><p>Create a Codabench account and request to join ThorSynth. Requests are approved by the organizers.</p><a class="more" data-link="codabench" href="#">Codabench page ›</a></article>
+        <article class="px lift card"><div class="lv">Level 2</div><h3>Request the data</h3><p>Request access to the dataset on Zenodo and attach the Data Use Agreement signed by the team leader. Approval unlocks the download.</p><a class="more" href="participate.html#register">How to get access ›</a></article>
+        <article class="px lift card"><div class="lv">Level 3</div><h3>Validate</h3><p>Upload synthetic CTs for the validation MRIs and get global and ROI metrics on the leaderboard.</p><a class="more" href="participate.html#submission">Submission format ›</a></article>
+        <article class="px lift card"><div class="lv">Level 4</div><h3>Final test</h3><p>Submit the test set within the final window. Top teams present at ISBI and co-author the challenge paper.</p><a class="more" href="rules.html">Rules & awards ›</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band mist">
+    <div class="wrap">
+      <div class="head"><div><h2>Where everything lives</h2><p class="lede">This site explains the challenge. Accounts, uploads and scores live on Codabench; images live on Zenodo.</p></div></div>
+      <div class="grid g4">
+        <article class="px lift pane"><div class="badge" aria-hidden="true">www</div><h3>This website</h3><p>Task, data description, metrics, timeline, rules and FAQ.</p><a class="go" href="challenge.html">Challenge & data ›</a></article>
+        <article class="px lift pane"><div class="badge" aria-hidden="true">cb</div><h3>Codabench</h3><p>Team registration, submissions, the validation leaderboard and the forum.</p><a class="go" data-link="codabench" href="#">Open Codabench ›</a></article>
+        <article class="px lift pane"><div class="badge" aria-hidden="true">db</div><h3>Zenodo</h3><p>The dataset, released on request once your signed Data Use Agreement is approved.</p><a class="go" data-link="dataHost" href="#">Zenodo record ›</a></article>
+        <article class="px lift pane"><div class="badge" aria-hidden="true">git</div><h3>GitHub</h3><p>Pre-processing and helper scripts for working with the data.</p><a class="go" data-link="github" href="#">Repository ›</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap grid g2" style="align-items:center">
+      <div>
+        <h2>Why chest CT from MRI?</h2>
+        <p>Chest CT carries opportunistic biomarkers (thymus, body composition, bone density) that depend on calibrated Hounsfield Units, which MRI cannot provide. ThorSynth benchmarks MRI-to-CT synthesis against photon-counting CT, so patients scanned with MRI can benefit too.</p>
+        <a href="challenge.html#motivation">Read the motivation ›</a>
+      </div>
+      <div class="px lift card" style="--c:var(--blue)">
+        <h3>Organised by</h3>
+        <p>S-RACE San Raffaele AI Centre, Vita-Salute San Raffaele University, and the Department of Advanced Imaging for Personalized Medicine, IRCCS San Raffaele Hospital, Milan, Italy.</p>
+        <div class="btn-row"><a class="btn ghost" href="organizers.html">Meet the team</a><a class="btn ghost" data-email href="#">Email</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

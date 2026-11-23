@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThorSynth Challenge & data</title>
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=Chakra+Petch:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="challenge">
+<main>
+  <header class="page-head">
+    <div class="wrap">
+      <h1>Challenge & data</h1>
+      <p>What you synthesise, from which images, and how the result is scored.</p>
+      <nav class="toc" aria-label="On this page"><a href="#motivation">Motivation</a><a href="#task">Task</a><a href="#tracks">Tracks</a><a href="#data">Data</a><a href="#evaluation">Evaluation</a></nav>
+    </div>
+  </header>
+
+  <section class="band"><div class="wrap">
+    <div class="sec" id="motivation">
+      <h2>Motivation</h2>
+      <div>
+        <p>Chest CT is increasingly recognised as a source of opportunistic quantitative biomarkers. Fatty involution of residual thymic tissue has been associated with all-cause and cardiovascular mortality, lung cancer incidence and treatment outcomes; skeletal-muscle and adipose-tissue attenuation support sarcopenia and body-composition assessment; trabecular bone attenuation supports osteoporosis screening.</p>
+        <p>These biomarkers depend on calibrated Hounsfield Units. MRI intensities are arbitrary units that depend on relaxation, sequence and coil sensitivity, so patients imaged with thoracic MRI cannot benefit from CT-derived measures. A reliable MRI-to-CT synthesis would close that gap without ionising radiation.</p>
+      </div>
+    </div>
+
+    <div class="sec" id="task">
+      <h2>Task</h2>
+      <div>
+        <p>Generate a <b>synthetic chest CT (sCT)</b> from a <b>3T Dixon MRI</b> of the thorax. The reference standard is <b>photon-counting CT (PCCT)</b>, registered to the MRI geometry and resampled to 1 mm isotropic resolution.</p>
+        <div class="flow" role="img" aria-label="Pipeline: 3T Dixon MRI goes into your model, which outputs a synthetic CT for the Br40 and the Bl60 kernel">
+          <div class="px node"><div class="kicker">Input</div><h3>3T Dixon MRI</h3><div class="small">Thorax, arbitrary intensity units</div></div>
+          <div class="arrow" aria-hidden="true"></div>
+          <div class="px node ink"><div class="kicker">Your method</div><h3>MRI → CT synthesis</h3><div class="small">Any architecture: GAN, diffusion, U-Net…</div></div>
+          <div class="arrow" aria-hidden="true"></div>
+          <div class="outs">
+            <div class="px node"><div class="kicker">Output · Track 1</div><h3>sCT, Br40 kernel</h3><div class="small">Hounsfield Units</div></div>
+            <div class="px node"><div class="kicker">Output · Track 2</div><h3>sCT, Bl60 kernel</h3><div class="small">Hounsfield Units</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" id="tracks">
+      <h2>Tracks</h2>
+      <div>
+        <p>The same MRI is the input for both tracks; only the target reconstruction kernel changes. Teams may enter one or both, and each track is ranked separately.</p>
+        <div class="grid g2" style="gap:24px">
+          <article class="px pane"><div class="kicker">Track 1</div><div class="big">Br40</div><h3>Mediastinal kernel</h3>
+            <dl class="spec"><dt>Focus</dt><dd>Soft tissue, vessels, mediastinum, thymus</dd><dt>Texture</dt><dd>Smooth, low noise</dd><dt>Typical window</dt><dd class="nowrap">W 400 / L 40</dd></dl></article>
+          <article class="px pane"><div class="kicker">Track 2</div><div class="big">Bl60</div><h3>Lung kernel</h3>
+            <dl class="spec"><dt>Focus</dt><dd>Lung parenchyma, airways, bone</dd><dt>Texture</dt><dd>Sharp, high frequency</dd><dt>Typical window</dt><dd class="nowrap">W 1500 / L −600</dd></dl></article>
+        </div>
+        <p class="small" style="margin-top:14px">Windows are given for orientation only. Metrics are computed on the full HU range.</p>
+      </div>
+    </div>
+
+    <div class="sec" id="data">
+      <h2>Data</h2>
+      <div>
+        <ul class="chips"><li>150–200 triplets</li><li>3T Dixon MRI</li><li>PCCT Br40 + Bl60</li><li>1 mm isotropic</li><li>.nii.gz</li></ul>
+        <p>Each case is a triplet: a 3T Dixon MRI plus two PCCT reconstructions of the same acquisition (Br40 and Bl60). CTs are registered to the MRI geometry. Images come from IRCCS San Raffaele Hospital, Milan, and are fully anonymised.</p>
+        <div class="split" role="img" aria-label="Approximate split: 120 training, 15 validation, 45 test cases"><div class="tr">Training ~120</div><div class="va">15</div><div class="te">Test ~45</div></div>
+        <div class="legend"><span>Proportions use the mid-point of each range</span></div>
+        <div class="grid g3" style="gap:22px">
+          <article class="px pane"><div class="kicker">Training</div><div class="big">110–130</div><dl class="spec"><dt>You get</dt><dd>MRI + both CTs + body mask</dd><dt>Release</dt><dd class="nowrap" data-date="Training data"></dd></dl></article>
+          <article class="px pane"><div class="kicker">Validation</div><div class="big">~15</div><dl class="spec"><dt>You get</dt><dd>MRI only</dd><dt>Release</dt><dd class="nowrap" data-date="Validation"></dd></dl></article>
+          <article class="px pane"><div class="kicker">Test</div><div class="big">40–50</div><dl class="spec"><dt>You get</dt><dd>To be announced</dd><dt>Release</dt><dd data-date="Test"></dd></dl></article>
+        </div>
+        <p class="note" style="margin-top:24px">Reference CTs and ROI masks of the validation and test sets are never released. The dataset is published on Zenodo and released on request, with a signed <a href="participate.html#register">Data Use Agreement</a>.</p>
+      </div>
+    </div>
+
+    <div class="sec" id="evaluation">
+      <h2>Evaluation</h2>
+      <div>
+        <h3>Global metrics</h3>
+        <p>Computed inside the body mask, separately for each track.</p>
+        <div class="grid g4" style="gap:20px">
+          <div class="px metric"><div class="abbr">MAE</div><p>Mean absolute error in HU, voxel-wise accuracy</p><span class="dir">lower is better</span></div>
+          <div class="px metric"><div class="abbr">SSIM</div><p>Structural similarity, structure and texture</p><span class="dir">higher is better</span></div>
+          <div class="px metric"><div class="abbr">r</div><p>Pearson correlation of HU values</p><span class="dir">higher is better</span></div>
+          <div class="px metric"><div class="abbr">FID / KID</div><p>Realism of the image distribution</p><span class="dir tbd">under evaluation</span></div>
+        </div>
+        <h3 style="margin-top:32px">Region-of-interest metrics</h3>
+        <p>HU statistics (mean, standard deviation and percentiles) inside six anatomical regions, the ones that carry the opportunistic biomarkers.</p>
+        <ul class="chips"><li>Lung</li><li>Ascending aorta</li><li>Thymus</li><li>Bone</li><li>Fat</li><li>Muscle</li></ul>
+        <h3 style="margin-top:28px">Ranking</h3>
+        <p>For each track, teams are ranked on every metric; the final position is the <b>aggregated rank</b> across metrics. Weights and tie-breaking rules are published before the validation phase.</p>
+        <p>The evaluation code will be public on <a data-link="github" href="#">GitHub</a>, so you can score your own validation predictions locally.</p>
+      </div>
+    </div>
+  </div></section>
+</main>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
