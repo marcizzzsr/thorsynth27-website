@@ -79,18 +79,18 @@
       <h2>Evaluation</h2>
       <div>
         <h3>Global metrics</h3>
-        <p>Computed inside the body mask, separately for each track.</p>
-        <div class="grid g4" style="gap:20px">
+        <p>Computed separately for each track on the full HU range: inside the body mask for Track 1 and inside the lung mask for Track 2.</p>
+        <div class="grid g3" style="gap:20px">
           <div class="px metric"><div class="abbr">MAE</div><p>Mean absolute error in HU, voxel-wise accuracy</p><span class="dir">lower is better</span></div>
+          <div class="px metric"><div class="abbr">ME</div><p>Mean signed error in HU, systematic bias (ranked on its absolute value)</p><span class="dir">closer to 0 is better</span></div>
           <div class="px metric"><div class="abbr">SSIM</div><p>Structural similarity, structure and texture</p><span class="dir">higher is better</span></div>
-          <div class="px metric"><div class="abbr">r</div><p>Pearson correlation of HU values</p><span class="dir">higher is better</span></div>
-          <div class="px metric"><div class="abbr">FID / KID</div><p>Realism of the image distribution</p><span class="dir tbd">under evaluation</span></div>
         </div>
+        <p class="small" style="margin-top:14px">PSNR and the Pearson correlation of HU values are reported for reference only and do not enter the ranking.</p>
         <h3 style="margin-top:32px">Region-of-interest metrics</h3>
-        <p>HU statistics (mean, standard deviation and percentiles) inside six anatomical regions, the ones that carry the opportunistic biomarkers.</p>
-        <ul class="chips"><li>Lung</li><li>Ascending aorta</li><li>Thymus</li><li>Bone</li><li>Fat</li><li>Muscle</li></ul>
+        <p>For each region, the HU distribution of the synthetic CT is compared with the reference through the absolute difference of the regional mean and of the 10th, 50th and 90th percentiles. Regions are drawn from the tissues that carry the opportunistic biomarkers; they are segmented by the organizers on the reference CT and never released.</p>
+        <ul class="chips"><li>Lung parenchyma</li><li>Ascending aorta</li><li>Thymus</li><li>Bone</li><li>Adipose tissue</li><li>Skeletal muscle</li></ul>
         <h3 style="margin-top:28px">Ranking</h3>
-        <p>For each track, teams are ranked on every metric; the final position is the <b>aggregated rank</b> across metrics. Weights and tie-breaking rules are published before the validation phase.</p>
+        <p>For each track, teams are ranked on every metric; the final position is the <b>aggregated rank</b> across metrics. Weights and tie-breaking rules are published before the validation phase. Further analyses, such as agreement on clinical biomarkers, are reported in the challenge paper and do not affect the ranking.</p>
       </div>
     </div>
   </div></section>
