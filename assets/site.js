@@ -150,8 +150,8 @@
   if (lb) {
     // Example rows to show the layout only. Replace with an export of the Codabench leaderboard.
     const rows = {
-      "br40-val": [["Example team A", 1.4, 58.2, .861, .942], ["Example team B", 2.2, 61.7, .853, .937], ["Baseline (organizers)", 2.8, 66.9, .842, .929], ["Example team C", 3.6, 70.4, .829, .921]],
-      "bl60-val": [["Example team B", 1.6, 88.5, .781, .918], ["Example team A", 1.8, 90.1, .776, .921], ["Baseline (organizers)", 2.6, 97.3, .762, .907], ["Example team D", 4.0, 109.8, .731, .889]],
+      "br40-val": [["Example team A", 1.3, 58.2, 3.1, .861], ["Example team B", 2.0, 61.7, 4.4, .853], ["Baseline (organizers)", 3.0, 66.9, 6.8, .842], ["Example team C", 3.7, 70.4, 7.9, .829]],
+      "bl60-val": [["Example team B", 1.3, 88.5, 5.2, .781], ["Example team A", 1.7, 90.1, 6.0, .776], ["Baseline (organizers)", 3.0, 97.3, 9.4, .762], ["Example team D", 4.0, 109.8, 12.6, .731]],
       "br40-test": [], "bl60-test": []
     };
     let tr = "br40", ph = "val";
@@ -159,7 +159,7 @@
       const r = rows[`${tr}-${ph}`];
       document.getElementById("lb-title").textContent = (tr === "br40" ? "Track 1 · Br40" : "Track 2 · Bl60") + " — " + (ph === "val" ? "Validation" : "Test");
       document.getElementById("lb-body").innerHTML = r.length
-        ? r.map((x, i) => `<tr${/Baseline/.test(x[0]) ? ' class="me"' : ""}><td data-l="Rank"><span class="rk rk${i + 1}">${i + 1}</span></td><td data-l="Team" class="team">${x[0].replace(" (organizers)", "")}${/Baseline/.test(x[0]) ? '<span class="pill">organizers</span>' : ""}</td><td class="n" data-l="Avg. rank">${x[1].toFixed(1)}</td><td class="n" data-l="MAE (HU) ↓">${x[2].toFixed(1)}</td><td class="n" data-l="SSIM ↑">${x[3].toFixed(3)}</td><td class="n" data-l="Pearson r ↑">${x[4].toFixed(3)}</td></tr>`).join("")
+        ? r.map((x, i) => `<tr${/Baseline/.test(x[0]) ? ' class="me"' : ""}><td data-l="Rank"><span class="rk rk${i + 1}">${i + 1}</span></td><td data-l="Team" class="team">${x[0].replace(" (organizers)", "")}${/Baseline/.test(x[0]) ? '<span class="pill">organizers</span>' : ""}</td><td class="n" data-l="Avg. rank">${x[1].toFixed(1)}</td><td class="n" data-l="MAE (HU) ↓">${x[2].toFixed(1)}</td><td class="n" data-l="|ME| (HU) ↓">${x[3].toFixed(1)}</td><td class="n" data-l="SSIM ↑">${x[4].toFixed(3)}</td></tr>`).join("")
         : `<tr class="empty"><td colspan="6">How test-phase results are published will be announced later. Final ranking: ${fmt((T.find(t => t.label === "Results") || {}).date || "2027-02-22")}.</td></tr>`;
     };
     lb.querySelectorAll("[data-tr]").forEach(b => b.addEventListener("click", () => { tr = b.dataset.tr; lb.querySelectorAll("[data-tr]").forEach(x => x.setAttribute("aria-pressed", x === b)); draw(); }));
